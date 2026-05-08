@@ -1,150 +1,764 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radd PC | Mantenimiento Informático Profesional en Bucaramanga</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>RaddPC | Soporte Tecnológico y Redes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== Scroll ===== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#0ea5ff;
+    border-radius:20px;
+}
+
+/* ===== Header ===== */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(5,8,22,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:70px;
+}
+
+.logo h2{
+    font-size:2rem;
+    font-weight:800;
+    background:linear-gradient(90deg,#00a2ff,#d946ef);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00a2ff;
+}
+
+.btn-nav{
+    padding:12px 22px;
+    background:linear-gradient(90deg,#0066ff,#d946ef);
+    border-radius:40px;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#0ea5ff55 0%, transparent 70%);
+    top:-200px;
+    right:-200px;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#d946ef33 0%, transparent 70%);
+    bottom:-200px;
+    left:-200px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:10;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-text h4{
+    color:#00a2ff;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.hero-text h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text h1 span{
+    background:linear-gradient(90deg,#00a2ff,#d946ef);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:50px;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,#0066ff,#00b7ff);
+    color:white;
+    box-shadow:0 0 20px #0ea5ff66;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
+
+.btn-secondary{
+    border:1px solid #0ea5ff;
+    color:#0ea5ff;
+}
+
+.hero-image{
+    position:relative;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:30px;
+    box-shadow:0 0 50px rgba(0,174,255,0.3);
+}
+
+/* ===== STATS ===== */
+
+.stats{
+    padding:50px 0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+}
+
+.stat-card{
+    background:#0c1224;
+    border:1px solid rgba(255,255,255,0.05);
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-10px);
+    border-color:#0ea5ff;
+}
+
+.stat-card i{
+    font-size:2.5rem;
+    margin-bottom:15px;
+    color:#00a2ff;
+}
+
+.stat-card h3{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.section-title span{
+    background:linear-gradient(90deg,#00a2ff,#d946ef);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.section-title p{
+    color:#94a3b8;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:#0c1224;
+    padding:40px 30px;
+    border-radius:25px;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.05);
+    position:relative;
+    overflow:hidden;
+}
+
+.service-card::before{
+    content:'';
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:radial-gradient(circle,#0ea5ff22 0%, transparent 70%);
+    top:-80px;
+    right:-80px;
+}
+
+.service-card:hover{
+    transform:translateY(-12px);
+    border-color:#00a2ff;
+}
+
+.service-card i{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#00a2ff;
+}
+
+.service-card h3{
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
+
+.service-card p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* ===== NETWORK SECTION ===== */
+
+.network{
+    padding:100px 0;
+}
+
+.network-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    background:#0c1224;
+    border-radius:30px;
+    padding:50px;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.network img{
+    width:100%;
+    border-radius:20px;
+}
+
+.network-content h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.network-content p{
+    color:#cbd5e1;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.feature i{
+    color:#00a2ff;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+    padding:100px 0;
+}
+
+.contact-box{
+    background:#0c1224;
+    padding:50px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-info h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.contact-item i{
+    width:50px;
+    height:50px;
+    background:#111827;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    color:#00a2ff;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+form input,
+form textarea{
+    background:#111827;
+    border:none;
+    padding:18px;
+    border-radius:15px;
+    color:white;
+    font-family:inherit;
+}
+
+form textarea{
+    height:150px;
+    resize:none;
+}
+
+form button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.05);
+    color:#94a3b8;
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:950px){
+
+    .hero-content,
+    .network-box,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    nav{
+        display:none;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-container">
-                <img src="1.png" alt="Radd PC - Rendimiento Análisis Diagnóstico" class="logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#por-que-elegirnos">Beneficios</a></li>
-                    <li><a href="#paquetes">Planes</a></li>
-                    <li><a href="#contacto" class="btn-nav">¡Agenda YA!</a></li>
-                </ul>
-            </nav>
+
+<header>
+    <div class="container navbar">
+
+        <div class="logo">
+            <img src="34.png" alt="logo">
+            <h2>raddPC</h2>
         </div>
-    </header>
 
-    <main>
-        <section id="inicio" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <p class="tagline">Rendimiento - Analisis - Diagnostico Definitivo</p>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#redes">Redes</a></li>
+                <li><a href="#contacto" class="btn-nav">Cotizar</a></li>
+            </ul>
+        </nav>
 
-                <div class="video-container">
-    <iframe width="560" height="315" src="Marketing03-raddpc.mp4" 
-        title="Video de Radd PC" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="container hero-content">
+
+    <div class="hero-text">
+
+        <h4>RENDIMIENTO • ANÁLISIS • DIAGNÓSTICO</h4>
+
+        <h1>
+            Soluciones <span>Tecnológicas</span><br>
+            para Empresas y Hogares
+        </h1>
+
+        <p>
+            Especialistas en mantenimiento preventivo y correctivo de computadores,
+            cable estructurado, redes LAN, cámaras CCTV y soporte tecnológico profesional.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">
+                Solicitar Diagnóstico
+            </a>
+
+            <a href="#servicios" class="btn btn-secondary">
+                Ver Servicios
+            </a>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="1.png" alt="Servicios Tecnológicos">
+    </div>
+
 </div>
 
-                <h1><br><span>Reparación y Mantenimiento de Computadores</span></h1>
-                <p class="subtitle">Somos expertos en Mantenimiento Preventivo y Correctivo, para que nunca te detengas por fallas técnicas.</p>
-                <a href="#contacto" class="btn btn-primary btn-cta">SOLICITAR DIAGNÓSTICO GRATIS</a>
-                <div class="hero-features">
-                    <div><i class="fas fa-check-circle"></i> Diagnostico y Domicilio GRATIS</div>
-                    <div><i class="fas fa-check-circle"></i>Somos Especialistas</div>
-                </div>
-            </div>
-        </section>
+</section>
 
-        <section id="servicios" class="services">
-            <div class="container">
-                <h2>Nuestras Áreas de Intervención</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <i class="fas fa-tools icon-primary"></i>
-                        <h4>Mantenimiento Preventivo</h4>
-                        <p>Optimización proactiva para extender la vida útil y prevenir fallas y errores en tu computador.</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-laptop-code icon-primary"></i>
-                        <h4>Mantenimiento Correctivo</h4>
-                        <p>Diagnóstico y reparación rápida de fallas críticas. Minimizamos el MTTR (Tiempo Medio de Reparación).</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-microchip icon-primary"></i>
-                        <h4>Instalación y Software</h4>
-                        <p>Formateo, instalación de SO, controladores y software básico (Office, Antivirus,programas basicos).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="por-que-elegirnos" class="why-choose">
-            <div class="container">
-                <h2>¿Por Qué Elegir a Radd PC?</h2>
-                <div class="reason-grid">
-                    <div class="reason-item">
-                        <i class="fas fa-medal"></i>
-                        <h3>Experiencia Académica</h3>
-                        <p>Conocimiento profundo en **Sistemas de Información** para soluciones integrales.</p>
-                    </div>
-                    <div class="reason-item">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h3>Cobertura Local</h3>
-                        <p>Servicio rápido y eficiente en todo el Área Metropolitana de **Bucaramanga**.</p>
-                    </div>
-                    <div class="reason-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Garantía de Desempeño</h3>
-                        <p>Nos enfocamos en **optimizar** el rendimiento para el usuario final.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- STATS -->
 
-        <section id="paquetes" class="packages bg-blue">
-            <div class="container">
-                <h2>Planes de Servicio con 100% de Efectividad <span>Alta Experiencia</span></h2>
-                <p class="subtitle-white">Aprovecha nuestras ofertas y asegura el mejor rendimiento para tu equipo.</p>
+<section class="stats">
 
-                <div class="package-grid">
-                    <div class="package-card">
-                        <img src="31.png" alt="Paquete MAX-2 Mantenimiento Preventivo" class="package-image">
-                        <a href="#contacto" class="btn btn-secondary">¡Lo Quiero!</a>
-                    </div>
-                    <div class="package-card featured">
-                        <img src="32.png" alt="Paquete VIP-3 Mantenimiento Preventivo Premium" class="package-image">
-                        <a href="#contacto" class="btn btn-primary">¡El más solicitado!</a>
-                    </div>
-                    <div class="package-card">
-                        <img src="33.png" alt="Paquete PRO-3 Mantenimiento Correctivo" class="package-image">
-                        <a href="#contacto" class="btn btn-secondary">¡Lo Quiero!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="container">
 
-        <section id="contacto" class="contact">
-            <div class="container">
-                <h2>Agenda Tu Diagnóstico GRATIS📞</h2>
-                <p>Déjanos tus datos y nos pondremos en contacto de inmediato (WhatsApp).</p>
-                <form id="contactForm">
-    <input type="text" name="nombre" placeholder="Tu Nombre" required>
-    <input type="email" name="email" placeholder="Tu Email" required>
-    <textarea name="mensaje" placeholder="Describe brevemente tu requerimiento (Ej: El PC está lento)" required></textarea>
-    <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
-    <p id="formMessage" class="hidden"></p>
-</form>
-            </div>
-        </section>
-    </main>
+    <div class="stats-grid">
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Radd PC | Soluciones de Sistemas y Tecnología en Bucaramanga y Area Metropolitana.</p>
-            <p class="small-text">Desarrollado con principios de Ingeniería de Software.</p>
-            <p class="small-text">copyrigh (todos los derechos reservados)</p>
+        <div class="stat-card">
+            <i class="fas fa-laptop-medical"></i>
+            <h3>100%</h3>
+            <p>Diagnóstico Profesional</p>
         </div>
-    </footer>
 
-    <script src="scripts.js"></script>
+        <div class="stat-card">
+            <i class="fas fa-network-wired"></i>
+            <h3>LAN</h3>
+            <p>Redes Estables y Seguras</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-shield-halved"></i>
+            <h3>CCTV</h3>
+            <p>Seguridad Inteligente</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-headset"></i>
+            <h3>24/7</h3>
+            <p>Soporte Tecnológico</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="servicios">
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Nuevos <span>Servicios</span></h2>
+        <p>Infraestructura tecnológica moderna y profesional.</p>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <i class="fas fa-screwdriver-wrench"></i>
+            <h3>Mantenimiento Preventivo</h3>
+            <p>
+                Limpieza profunda, optimización y mantenimiento para aumentar
+                la vida útil de tus equipos.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Mantenimiento Correctivo</h3>
+            <p>
+                Reparación avanzada de computadores, errores de sistema,
+                lentitud, sobrecalentamiento y fallas críticas.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fas fa-network-wired"></i>
+            <h3>Cable Estructurado</h3>
+            <p>
+                Instalación y certificación de cableado estructurado
+                para empresas y oficinas.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fas fa-wifi"></i>
+            <h3>Redes LAN y WiFi</h3>
+            <p>
+                Configuración de routers, switches y redes locales
+                rápidas, seguras y estables.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fas fa-video"></i>
+            <h3>Cámaras CCTV</h3>
+            <p>
+                Instalación y mantenimiento de sistemas de videovigilancia
+                y monitoreo inteligente.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fas fa-cloud"></i>
+            <h3>Software y Optimización</h3>
+            <p>
+                Formateo, instalación de Windows, drivers, Office,
+                antivirus y optimización avanzada.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- REDES -->
+
+<section class="network" id="redes">
+
+<div class="container">
+
+    <div class="network-box">
+
+        <img src="2.png" alt="Redes Empresariales">
+
+        <div class="network-content">
+
+            <h2>
+                Infraestructura de Red Profesional
+            </h2>
+
+            <p>
+                Modernizamos tu entorno tecnológico con soluciones avanzadas
+                en conectividad, seguridad y mantenimiento integral.
+            </p>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Cableado estructurado certificado</span>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Instalación de routers y switches</span>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Configuración de redes empresariales</span>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Monitoreo y cámaras CCTV</span>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Diagnóstico y soporte técnico especializado</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contacto">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="contact-grid">
+
+    <div class="contact-info">
+
+        <h2>¡Cotiza Tu Servicio Hoy!</h2>
+
+        <p>
+            Atención rápida, soporte técnico certificado y diagnóstico GRATIS.
+            Escríbenos ahora y agenda tu visita.
+        </p>
+
+        <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>301-512-26-07</span>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>raddpc10soporte@gmail.com</span>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>Bucaramanga y Área Metropolitana</span>
+        </div>
+
+    </div>
+
+    <form>
+
+        <input type="text" placeholder="Nombre completo">
+
+        <input type="email" placeholder="Correo electrónico">
+
+        <textarea placeholder="Describe tu requerimiento"></textarea>
+
+        <button class="btn btn-primary">
+            Enviar Solicitud
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>© 2026 RaddPC - Soluciones Tecnológicas Profesionales</p>
+
+</div>
+
+</footer>
+
 </body>
-
 </html>
-
-
-
-

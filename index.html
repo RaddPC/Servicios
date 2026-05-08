@@ -728,19 +728,19 @@ footer{
 
     </div>
 
-    <form>
+   <form id="whatsappForm">
 
-        <input type="text" placeholder="Nombre completo">
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
 
-        <input type="email" placeholder="Correo electrónico">
+    <input type="email" id="correo" placeholder="Correo electrónico" required>
 
-        <textarea placeholder="Describe tu requerimiento"></textarea>
+    <textarea id="mensaje" placeholder="Describe tu requerimiento"></textarea>
 
-        <button class="btn btn-primary">
-            Enviar Solicitud
-        </button>
+    <button type="submit" class="btn btn-primary">
+        Enviar por WhatsApp
+    </button>
 
-    </form>
+</form>
 
 </div>
 
@@ -762,3 +762,28 @@ footer{
 
 </body>
 </html>
+<script>
+
+document.getElementById("whatsappForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let nombre = document.getElementById("nombre").value;
+    let correo = document.getElementById("correo").value;
+    let mensaje = document.getElementById("mensaje").value;
+
+    let numero = "573015122607";
+
+    let texto =
+`Hola RaddPC, quiero solicitar un servicio.%0A%0A
+👤 Nombre: ${nombre}%0A
+📧 Correo: ${correo}%0A
+🛠 Requerimiento: ${mensaje}`;
+
+    let url = `https://wa.me/${numero}?text=${texto}`;
+
+    window.open(url, "_blank");
+
+});
+
+</script>

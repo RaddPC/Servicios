@@ -10,11 +10,7 @@ const CONFIG = {
   },
   empresa: {
     nombre:      'Radd PC',
-    razon:       'Razón social: Radd PC (editar)',
-    nit:         'NIT: 000.000.000-0 (editar)',
-    direccion:   'Dirección, Ciudad, Colombia (editar)',
-    horario:     'Lunes a sábado · 8:00 a.m. – 6:00 p.m.',
-    email:       'contacto@tudominio.com',
+    email:       'raddpc.info@gmail.com',
     telefono:    '+57 301 512 2607',
     descripcion: 'Mantenimiento preventivo y correctivo de computadores para hogares y empresas. Rendimiento, análisis y diagnóstico definitivo.'
   },

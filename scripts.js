@@ -41,7 +41,7 @@ const CONFIG = {
   $$('img[data-logo]').forEach(i => { const f = () => { i.onerror = null; i.src = FALLBACK; }; i.onerror = f; if (i.complete && !i.naturalWidth) f(); });
 
   // Imágenes de secciones: marcador si falta el archivo
-  $$('.media img').forEach(i => { const f = () => { i.parentElement.classList.add('x'); i.remove(); }; i.addEventListener('error', f); if (i.complete && !i.naturalWidth) f(); });
+  $$('.media img').forEach(i => { const f = () => { if (i.parentElement) { i.parentElement.classList.add('x'); i.remove(); } }; i.addEventListener('error', f); if (i.complete && !i.naturalWidth) f(); });
 
   // Menú móvil
   const burger = $('#burger'), menu = $('#menu');
@@ -79,8 +79,8 @@ const CONFIG = {
     [...dots.children].forEach((d, j) => d.classList.toggle('on', panels.indexOf(e.target) === j));
     const b = e.target.querySelector('.pill.solid');
     if (touch && b && !e.target.dataset.d) { e.target.dataset.d = 1; setTimeout(() => demo(b), 900); }
-  }), { threshold: .3 });
-  panels.forEach(p => io.observe(p));
+  }), { threshold: .05 });
+  if ('IntersectionObserver' in window) panels.forEach(p => io.observe(p)); else panels.forEach(p => p.classList.add('in'));
 
   // Robot: leve movimiento con el mouse
   const robot = $('#robot');

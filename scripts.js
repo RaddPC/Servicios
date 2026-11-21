@@ -10,7 +10,7 @@ const CONFIG = {
   },
   empresa: {
     nombre:      'Radd PC',
-    email:       'raddpc.info@gmail.com',
+    email:       'raddpc10soporte@gmail.com',
     telefono:    '+57 301 512 2607',
     descripcion: 'Mantenimiento preventivo y correctivo de computadores para hogares y empresas. Rendimiento, análisis y diagnóstico definitivo.'
   },

@@ -1,4 +1,4 @@
-/* ============================================================
+//* ============================================================
    ✏️ EDITA AQUÍ TUS DATOS (todo el sitio se actualiza solo)
    ============================================================ */
 const CONFIG = {
@@ -81,6 +81,10 @@ const CONFIG = {
     if (touch && b && !e.target.dataset.d) { e.target.dataset.d = 1; setTimeout(() => demo(b), 900); }
   }), { threshold: .05 });
   if ('IntersectionObserver' in window) panels.forEach(p => io.observe(p)); else panels.forEach(p => p.classList.add('in'));
+  // Seguro extra: nunca dejar una sección oculta
+  const reveal = () => panels.forEach(p => { const r = p.getBoundingClientRect(); if (r.top < innerHeight * .9 && r.bottom > 0) p.classList.add('in'); });
+  addEventListener('scroll', reveal, { passive: true }); addEventListener('resize', reveal); reveal();
+  setTimeout(() => panels.forEach(p => p.classList.add('in')), 3000);
 
   // Robot: leve movimiento con el mouse
   const robot = $('#robot');

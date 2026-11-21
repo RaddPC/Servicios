@@ -110,4 +110,11 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--cyan)}
  .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:520px){.foot-grid{grid-template-columns:1fr}.brand{font-size:.95rem}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.head,.copy,.media,.steps,form{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.robot,.robot-wrap::before,.hero .txt>*{animation:none!important}.js .head,.js .copy,.js .media,.js .steps,.js form{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* interacción de botones */
+.pill{position:relative;overflow:hidden}
+.pill::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(56,214,255,.5) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s;pointer-events:none}
+.pill:hover::after{transform:translateX(120%)}
+.pill:hover,.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(56,214,255,.4)}
+.pill:active,.wa-float:active{transform:scale(.95)}
+.pill.pressed,.wa-float.pressed{transform:scale(.94);box-shadow:0 0 28px rgba(56,214,255,.7)}

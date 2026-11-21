@@ -1,849 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>RaddPC | Soporte Tecnológico y Redes</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Montserrat',sans-serif;
-    background:#050816;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* ===== Scroll ===== */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#0ea5ff;
-    border-radius:20px;
-}
-
-/* ===== Header ===== */
-
-header{
-    width:100%;
-    position:fixed;
-    top:0;
-    z-index:1000;
-    background:rgba(5,8,22,0.85);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-.container{
-    width:90%;
-    max-width:1300px;
-    margin:auto;
-}
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo img{
-    width:70px;
-}
-
-.logo h2{
-    font-size:2rem;
-    font-weight:800;
-    background:linear-gradient(90deg,#00a2ff,#d946ef);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav ul{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
-
-nav a{
-    text-decoration:none;
-    color:white;
-    font-weight:500;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#00a2ff;
-}
-
-.btn-nav{
-    padding:12px 22px;
-    background:linear-gradient(90deg,#0066ff,#d946ef);
-    border-radius:40px;
-}
-
-/* ===== HERO ===== */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:'';
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#0ea5ff55 0%, transparent 70%);
-    top:-200px;
-    right:-200px;
-}
-
-.hero::after{
-    content:'';
-    position:absolute;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,#d946ef33 0%, transparent 70%);
-    bottom:-200px;
-    left:-200px;
-}
-
-.hero-content{
-    position:relative;
-    z-index:10;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-    padding-top:120px;
-}
-
-.hero-text h4{
-    color:#00a2ff;
-    letter-spacing:3px;
-    margin-bottom:15px;
-}
-
-.hero-text h1{
-    font-size:4rem;
-    line-height:1.1;
-    margin-bottom:20px;
-}
-
-.hero-text h1 span{
-    background:linear-gradient(90deg,#00a2ff,#d946ef);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hero-text p{
-    color:#cbd5e1;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:50px;
-    font-weight:700;
-    transition:0.3s;
-}
-
-.btn-primary{
-    background:linear-gradient(90deg,#0066ff,#00b7ff);
-    color:white;
-    box-shadow:0 0 20px #0ea5ff66;
-}
-
-.btn-primary:hover{
-    transform:translateY(-5px);
-}
-
-.btn-secondary{
-    border:1px solid #0ea5ff;
-    color:#0ea5ff;
-}
-
-.hero-image{
-    position:relative;
-}
-
-.hero-image img{
-    width:100%;
-    border-radius:30px;
-    box-shadow:0 0 50px rgba(0,174,255,0.3);
-}
-
-/* ===== STATS ===== */
-
-.stats{
-    padding:50px 0;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:25px;
-}
-
-.stat-card{
-    background:#0c1224;
-    border:1px solid rgba(255,255,255,0.05);
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.stat-card:hover{
-    transform:translateY(-10px);
-    border-color:#0ea5ff;
-}
-
-.stat-card i{
-    font-size:2.5rem;
-    margin-bottom:15px;
-    color:#00a2ff;
-}
-
-.stat-card h3{
-    font-size:2rem;
-    margin-bottom:10px;
-}
-
-/* ===== SERVICES ===== */
-
-.services{
-    padding:100px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:70px;
-}
-
-.section-title h2{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.section-title span{
-    background:linear-gradient(90deg,#00a2ff,#d946ef);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.section-title p{
-    color:#94a3b8;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.service-card{
-    background:#0c1224;
-    padding:40px 30px;
-    border-radius:25px;
-    transition:0.4s;
-    border:1px solid rgba(255,255,255,0.05);
-    position:relative;
-    overflow:hidden;
-}
-
-.service-card::before{
-    content:'';
-    position:absolute;
-    width:200px;
-    height:200px;
-    background:radial-gradient(circle,#0ea5ff22 0%, transparent 70%);
-    top:-80px;
-    right:-80px;
-}
-
-.service-card:hover{
-    transform:translateY(-12px);
-    border-color:#00a2ff;
-}
-
-.service-card i{
-    font-size:3rem;
-    margin-bottom:20px;
-    color:#00a2ff;
-}
-
-.service-card h3{
-    margin-bottom:15px;
-    font-size:1.4rem;
-}
-
-.service-card p{
-    color:#cbd5e1;
-    line-height:1.7;
-}
-
-/* ===== NETWORK SECTION ===== */
-
-.network{
-    padding:100px 0;
-}
-
-.network-box{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-    background:#0c1224;
-    border-radius:30px;
-    padding:50px;
-    border:1px solid rgba(255,255,255,0.05);
-}
-
-.network img{
-    width:100%;
-    border-radius:20px;
-}
-
-.network-content h2{
-    font-size:3rem;
-    margin-bottom:25px;
-}
-
-.network-content p{
-    color:#cbd5e1;
-    line-height:1.9;
-    margin-bottom:20px;
-}
-
-.feature{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:18px;
-}
-
-.feature i{
-    color:#00a2ff;
-}
-
-/* ===== CONTACT ===== */
-
-.contact{
-    padding:100px 0;
-}
-
-.contact-box{
-    background:#0c1224;
-    padding:50px;
-    border-radius:30px;
-    border:1px solid rgba(255,255,255,0.05);
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-}
-
-.contact-info h2{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.contact-info p{
-    color:#cbd5e1;
-    line-height:1.8;
-    margin-bottom:25px;
-}
-
-.contact-item{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.contact-item i{
-    width:50px;
-    height:50px;
-    background:#111827;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    color:#00a2ff;
-}
-
-form{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
-
-form input,
-form textarea{
-    background:#111827;
-    border:none;
-    padding:18px;
-    border-radius:15px;
-    color:white;
-    font-family:inherit;
-}
-
-form textarea{
-    height:150px;
-    resize:none;
-}
-
-form button{
-    border:none;
-    cursor:pointer;
-}
-
-/* ===== FOOTER ===== */
-
-footer{
-    padding:40px 0;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,0.05);
-    color:#94a3b8;
-}
-
-/* ===== Responsive ===== */
-
-@media(max-width:950px){
-
-    .hero-content,
-    .network-box,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero-text h1{
-        font-size:3rem;
-    }
-
-    nav{
-        display:none;
-    }
-
-}
-
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radd PC | Mantenimiento y reparación de computadores</title>
+<meta name="description" content="Mantenimiento preventivo y correctivo de computadores para hogares y empresas. Rendimiento, análisis y diagnóstico definitivo.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+<!-- Iconos (no editar) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M14 8V6.5c0-.7.2-1 1.2-1H17V2.2C16.600 2.100 15.600 2 14.500 2 12 2 10.500 3.500 10.500 6v2H8v3.500h2.500V22H14V11.500h2.800L17.300 8H14Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.500" cy="6.500" r="1.200" fill="currentColor"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M16.500 3c.3 2.300 1.700 3.800 4 4v3.200c-1.500 0-2.900-.5-4-1.200v6.300c0 3.400-2.700 5.700-5.800 5.700-3.100 0-5.700-2.400-5.700-5.600 0-3.500 3-6 6.500-5.500v3.300c-1.700-.5-3.200.5-3.200 2.200 0 1.300 1 2.200 2.300 2.200 1.300 0 2.300-.9 2.300-2.400V3h3.600Z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.600 15l-1.300 5 5.100-1.300A10 10 0 1 0 12 2Zm5.200 14.200c-.2.600-1.200 1.200-1.700 1.200-.4.100-1 .1-1.600-.1-.4-.1-.9-.3-1.500-.6-2.600-1.100-4.300-3.800-4.400-4-.1-.2-1-1.300-1-2.500s.6-1.800.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.500l.8 1.900c.1.200.1.400 0 .5l-.4.600c-.2.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2 1.300 2.300 1.400.3.100.4.100.6-.1l.8-1c.2-.3.4-.2.600-.1l1.800.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400Z"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M4 2l15 9.500-6.500 1.500 3.500 7-3 1.500-3.500-7L4 20Z" fill="#fff" stroke="#000" stroke-width="1.500" stroke-linejoin="round"/></symbol>
+</svg>
 
-<header>
-    <div class="container navbar">
-
-        <div class="logo">
-            <img src="1.png" alt="logo">
-            <h2>raddPC</h2>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#redes">Redes</a></li>
-                <li><a href="#contacto" class="btn-nav">Cotizar</a></li>
-            </ul>
-        </nav>
-
-    </div>
+<a class="skip" href="#hardware">Saltar al contenido</a>
+<header class="nav" id="nav">
+  <!-- LOGO: reemplaza images/logo.png por tu archivo (tamaño en styles.css → --logo-h) -->
+  <a href="#inicio" class="brand" aria-label="Radd PC inicio"><img class="logo" data-logo src="images/logo.png" alt="Logo Radd PC"><span>RADD<b>PC</b></span></a>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button>
+  <nav class="menu" id="menu">
+    <a href="#hardware">Hardware</a><a href="#software">Software</a><a href="#diagnostico">Diagnóstico</a><a href="#empresas">Empresas</a><a href="#proceso">Proceso</a>
+    <a class="pill" href="#contacto">Cotizar</a>
+  </nav>
 </header>
+<nav class="dots" id="dots" aria-label="Secciones"></nav>
 
-<!-- HERO -->
-
-<section class="hero" id="inicio">
-
-<div class="container hero-content">
-
-    <div class="hero-text">
-
-        <h4>RENDIMIENTO • ANÁLISIS • DIAGNÓSTICO</h4>
-
-        <h1>
-            Soluciones <span>Tecnológicas</span><br>
-            para Empresas y Hogares
-        </h1>
-
-        <p>
-            Especialistas en mantenimiento preventivo y correctivo de computadores,
-            cable estructurado, redes LAN, cámaras CCTV y soporte tecnológico profesional.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#contacto" class="btn btn-primary">
-                Solicitar Diagnóstico
-            </a>
-
-            <a href="#servicios" class="btn btn-secondary">
-                Ver Servicios
-            </a>
-        </div>
-
-    </div>
-
-   <div class="video-container">
-    <iframe width="560" height="315" src="Marketing03-raddpc.mp4" 
-        title="Video de Radd PC" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
-</div>
-
-</div>
-
+<main>
+<!-- INICIO con robot IA de fondo -->
+<section class="panel hero" id="inicio">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <!-- ROBOT: reemplaza images/robot.webp por tu imagen (PNG/WEBP con fondo transparente) -->
+  <div class="robot-wrap" aria-hidden="true"><img class="robot" id="robot" src="images/robot.webp" alt=""></div>
+  <div class="txt">
+    <p class="kicker">Rendimiento · Análisis · Diagnóstico</p>
+    <h1>Tu computador, como nuevo</h1>
+    <p class="sub">Mantenimiento preventivo y correctivo para hogares y empresas.</p>
+    <div class="cta"><a class="pill solid" data-wa="Hola Radd PC, quiero cotizar un mantenimiento.">Cotizar ahora</a><a class="pill" href="#hardware">Ver servicios</a></div>
+  </div>
 </section>
 
-<!-- STATS -->
-
-<section class="stats">
-
-<div class="container">
-
-    <div class="stats-grid">
-
-        <div class="stat-card">
-            <i class="fas fa-laptop-medical"></i>
-            <h3>100%</h3>
-            <p>Diagnóstico Profesional</p>
-        </div>
-
-        <div class="stat-card">
-            <i class="fas fa-network-wired"></i>
-            <h3>LAN</h3>
-            <p>Redes Estables y Seguras</p>
-        </div>
-
-        <div class="stat-card">
-            <i class="fas fa-shield-halved"></i>
-            <h3>CCTV</h3>
-            <p>Seguridad Inteligente</p>
-        </div>
-
-        <div class="stat-card">
-            <i class="fas fa-headset"></i>
-            <h3>24/7</h3>
-            <p>Soporte Tecnológico</p>
-        </div>
-
+<!-- Cada sección: título centrado + texto + imagen (images/...). Cambia el nombre del archivo en src y data-ph -->
+<section class="panel" id="hardware">
+  <div class="inner">
+    <header class="head"><p class="kicker">Hardware</p><h2>Mantenimiento interno</h2></header>
+    <div class="split">
+      <div class="copy"><p class="sub">Limpieza profunda, cambio de pasta térmica y revisión de cada componente. Menos temperatura, más vida útil para tu equipo.</p><div class="cta"><a class="pill solid" data-wa="Hola, quiero mantenimiento de hardware para mi equipo.">Solicitar</a></div></div>
+      <figure class="media" data-ph="hardware.jpg"><img src="images/hardware.jpg" alt="Limpieza interna y revisión de componentes" loading="lazy"></figure>
     </div>
-
-</div>
-
+  </div>
 </section>
 
-<!-- SERVICES -->
-
-<section class="services" id="servicios">
-
-<div class="container">
-
-    <div class="section-title">
-        <h2>Nuevos <span>Servicios</span></h2>
-        <p>Infraestructura tecnológica moderna y profesional.</p>
+<section class="panel" id="software">
+  <div class="inner">
+    <header class="head"><p class="kicker">Software</p><h2>Velocidad recuperada</h2></header>
+    <div class="split rev">
+      <div class="copy"><p class="sub">Instalación, actualizaciones y limpieza del sistema. Tu equipo arranca más rápido y responde sin esperas.</p><div class="cta"><a class="pill solid" data-wa="Hola, quiero optimizar el software de mi equipo.">Solicitar</a></div></div>
+      <figure class="media" data-ph="software.jpg"><img src="images/software.jpg" alt="Optimización e instalación de software" loading="lazy"></figure>
     </div>
-
-    <div class="services-grid">
-
-        <div class="service-card">
-            <i class="fas fa-screwdriver-wrench"></i>
-            <h3>Mantenimiento Preventivo</h3>
-            <p>
-                Limpieza profunda, optimización y mantenimiento para aumentar
-                la vida útil de tus equipos.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <i class="fas fa-laptop-code"></i>
-            <h3>Mantenimiento Correctivo</h3>
-            <p>
-                Reparación avanzada de computadores, errores de sistema,
-                lentitud, sobrecalentamiento y fallas críticas.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <i class="fas fa-network-wired"></i>
-            <h3>Cable Estructurado</h3>
-            <p>
-                Instalación y certificación de cableado estructurado
-                para empresas y oficinas.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <i class="fas fa-wifi"></i>
-            <h3>Redes LAN y WiFi</h3>
-            <p>
-                Configuración de routers, switches y redes locales
-                rápidas, seguras y estables.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <i class="fas fa-video"></i>
-            <h3>Cámaras CCTV</h3>
-            <p>
-                Instalación y mantenimiento de sistemas de videovigilancia
-                y monitoreo inteligente.
-            </p>
-        </div>
-
-        <div class="service-card">
-            <i class="fas fa-cloud"></i>
-            <h3>Software y Optimización</h3>
-            <p>
-                Formateo, instalación de Windows, drivers, Office,
-                antivirus y optimización avanzada.
-            </p>
-        </div>
-
-    </div>
-
-</div>
-
+  </div>
 </section>
 
-    <!-- Mantenimiento PC -->
-
-<section class="network" id="redes">
-
-<div class="container">
-
-    <div class="network-box">
-
-        <img src="22.jpeg" alt="Mantenimiento Preventivo y Correctivo">
-
-        <div class="network-content">
-
-            <h2>
-                Diagnostico Definitivo para tu PC
-            </h2>
-
-            <p>
-                Trabajamos para brindarte solucion a tu problema, con un soporte profesional y calificado.
-            </p>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Limpieza profunda,cambio y arreglo de partes. (Hardware)</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Instalación y Configuracion de programas. (Software)</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Optimizacion de sistema</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Verificacion de Virus y malware.</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Soporte técnico especializado.</span>
-            </div>
-
-        </div>
-
+<section class="panel" id="diagnostico">
+  <div class="inner">
+    <header class="head"><p class="kicker">Diagnóstico y reparación</p><h2>Encontramos la falla real</h2></header>
+    <div class="split">
+      <div class="copy"><p class="sub">Componentes, virus o errores del sistema. Te explicamos qué tiene tu equipo y cuánto cuesta resolverlo, antes de empezar.</p><div class="cta"><a class="pill solid" data-wa="Hola, mi equipo tiene una falla y necesito un diagnóstico.">Pedir diagnóstico</a></div></div>
+      <figure class="media" data-ph="diagnostico.jpg"><img src="images/diagnostico.jpg" alt="Diagnóstico y reparación de componentes" loading="lazy"></figure>
     </div>
-
-</div>
-
+  </div>
 </section>
 
-
-
-<!-- REDES -->
-
-<section class="network" id="redes">
-
-<div class="container">
-
-    <div class="network-box">
-
-        <img src="44.jpeg" alt="Redes Empresariales">
-
-        <div class="network-content">
-
-            <h2>
-                Infraestructura de Red Profesional
-            </h2>
-
-            <p>
-                Modernizamos tu entorno tecnológico con soluciones avanzadas
-                en conectividad, seguridad y mantenimiento integral.
-            </p>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Cableado estructurado certificado</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Instalación de routers y switches</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Configuración de redes empresariales</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Monitoreo y cámaras CCTV</span>
-            </div>
-
-            <div class="feature">
-                <i class="fas fa-check-circle"></i>
-                <span>Diagnóstico y soporte técnico especializado</span>
-            </div>
-
-        </div>
-
+<section class="panel" id="empresas">
+  <div class="inner">
+    <header class="head"><p class="kicker">Empresas</p><h2>Tu negocio sin pausas</h2></header>
+    <div class="split rev">
+      <div class="copy"><p class="sub">Mantenimiento programado para varios equipos. Menos fallas, menos tiempo perdido y más productividad para tu equipo de trabajo.</p><div class="cta"><a class="pill solid" data-wa="Hola, quiero un plan de mantenimiento para mi empresa.">Plan empresarial</a></div></div>
+      <figure class="media" data-ph="empresas.jpg"><img src="images/empresas.jpg" alt="Mantenimiento de equipos para empresas" loading="lazy"></figure>
     </div>
-
-</div>
-
+  </div>
 </section>
 
-    
-<!-- CONTACT -->
-
-<section class="contact" id="contacto">
-
-<div class="container">
-
-<div class="contact-box">
-
-<div class="contact-grid">
-
-    <div class="contact-info">
-
-        <h2>¡Cotiza Tu Servicio Hoy!</h2>
-
-        <p>
-            Atención rápida, soporte técnico certificado y diagnóstico GRATIS.
-            Escríbenos ahora y agenda tu visita.
-        </p>
-
-        <div class="contact-item">
-            <i class="fab fa-whatsapp"></i>
-            <span>301-512-26-07</span>
-        </div>
-
-        <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>raddpc10soporte@gmail.com</span>
-        </div>
-
-        <div class="contact-item">
-            <i class="fas fa-location-dot"></i>
-            <span>Bucaramanga y Área Metropolitana</span>
-        </div>
-
+<section class="panel" id="proceso">
+  <div class="inner">
+    <header class="head"><p class="kicker">Nuestro método</p><h2>Tres pasos, cero adivinanzas</h2></header>
+    <div class="split">
+      <ol class="steps">
+        <li><b>01</b><div><h3>Rendimiento</h3><p>Medimos temperaturas, velocidad y estado general.</p></div></li>
+        <li><b>02</b><div><h3>Análisis</h3><p>Revisamos hardware y software para hallar el origen.</p></div></li>
+        <li><b>03</b><div><h3>Diagnóstico definitivo</h3><p>Solución clara, con precio claro.</p></div></li>
+      </ol>
+      <figure class="media" data-ph="proceso.jpg"><img src="images/proceso.jpg" alt="Método de trabajo Radd PC" loading="lazy"></figure>
     </div>
-
-   <form id="whatsappForm">
-
-    <input type="text" id="nombre" placeholder="Nombre completo" required>
-
-    <input type="email" id="correo" placeholder="Correo electrónico" required>
-
-    <textarea id="mensaje" placeholder="Describe tu requerimiento"></textarea>
-
-    <button type="submit" class="btn btn-primary">
-        Enviar por WhatsApp
-    </button>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<footer>
+<section class="panel" id="contacto">
+  <div class="inner">
+    <header class="head"><p class="kicker">Contacto</p><h2>Hablemos de tu equipo</h2></header>
+    <div class="split">
+      <div class="copy">
+        <p class="sub">Escríbenos y recibe una cotización sin compromiso. Síguenos para ver trabajos y consejos.</p>
+        <a class="pill solid wa-btn" data-wa="Hola Radd PC, quiero información."><svg width="18" height="18"><use href="#i-whatsapp"/></svg> WhatsApp</a>
+        <!-- REDES: edita los enlaces en script.js → CONFIG.social -->
+        <div class="social" aria-label="Redes sociales">
+          <a data-social="facebook" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#i-facebook"/></svg></a>
+          <a data-social="instagram" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#i-instagram"/></svg></a>
+          <a data-social="tiktok" aria-label="TikTok" target="_blank" rel="noopener"><svg><use href="#i-tiktok"/></svg></a>
+        </div>
+      </div>
+      <form id="form" novalidate>
+        <label>Nombre<input name="nombre" required autocomplete="name"></label>
+        <label>Servicio<select name="servicio"><option>Mantenimiento preventivo</option><option>Reparación / correctivo</option><option>Eliminación de virus</option><option>Optimización de software</option><option>Plan para empresa</option></select></label>
+        <label>¿Qué le pasa a tu equipo?<textarea name="msg" rows="3" required></textarea></label>
+        <button class="pill solid" type="submit">Enviar por WhatsApp</button>
+        <p class="err" id="err" role="alert"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
 
-<div class="container">
-
-<p>© 2026 RaddPC - Soluciones Tecnológicas Profesionales</p>
-
-</div>
-
+<!-- PIE DE PÁGINA tipo tienda: edita los datos en script.js → CONFIG.empresa -->
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <a href="#inicio" class="brand"><img class="logo" data-logo src="images/logo.png" alt=""><span>RADD<b>PC</b></span></a>
+      <p class="muted" data-emp="descripcion"></p>
+      <div class="social">
+        <a data-social="facebook" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#i-facebook"/></svg></a>
+        <a data-social="instagram" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#i-instagram"/></svg></a>
+        <a data-social="tiktok" aria-label="TikTok" target="_blank" rel="noopener"><svg><use href="#i-tiktok"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Servicios</h4><ul><li><a href="#hardware">Mantenimiento de hardware</a></li><li><a href="#software">Optimización de software</a></li><li><a href="#diagnostico">Diagnóstico y reparación</a></li><li><a href="#empresas">Planes para empresas</a></li></ul></div>
+    <div><h4>Información de la empresa</h4><ul class="info">
+      <li data-emp="razon"></li><li data-emp="nit"></li><li data-emp="direccion"></li><li data-emp="horario"></li>
+      <li><a data-mail></a></li><li><a data-tel></a></li></ul></div>
+    <div><h4>Políticas</h4><ul><li><a data-pol="privacidad">Política de privacidad</a></li><li><a data-pol="terminos">Términos y condiciones</a></li><li><a data-pol="garantia">Garantía del servicio</a></li></ul></div>
+  </div>
+  <p class="copy-r">© <span id="y"></span> <span data-emp="nombre"></span>. Todos los derechos reservados.</p>
 </footer>
 
+<a class="wa-float" data-wa="Hola Radd PC, necesito ayuda con mi computador." aria-label="WhatsApp"><svg width="26" height="26"><use href="#i-whatsapp"/></svg></a>
+<div class="fc" id="fc" aria-hidden="true"><svg width="30" height="30"><use href="#i-cursor"/></svg><i></i></div>
+<script src="script.js"></script>
 </body>
 </html>
-<script>
-
-document.getElementById("whatsappForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    let nombre = document.getElementById("nombre").value;
-    let correo = document.getElementById("correo").value;
-    let mensaje = document.getElementById("mensaje").value;
-
-    let numero = "573015122607";
-
-    let texto =
-`Hola RaddPC, quiero solicitar un servicio.%0A%0A
-👤 Nombre: ${nombre}%0A
-📧 Correo: ${correo}%0A
-🛠 Requerimiento: ${mensaje}`;
-
-    let url = `https://wa.me/${numero}?text=${texto}`;
-
-    window.open(url, "_blank");
-
-});
-
-</script>

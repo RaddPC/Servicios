@@ -1,4 +1,4 @@
-//* ============================================================
+/* ============================================================
    ✏️ EDITA AQUÍ TUS DATOS (todo el sitio se actualiza solo)
    ============================================================ */
 const CONFIG = {
@@ -55,7 +55,7 @@ const CONFIG = {
   const later = (f, t) => timers.push(setTimeout(f, t));
   const stop = btn => { timers.forEach(clearTimeout); timers = []; fc.style.opacity = 0; fc.classList.remove('click'); btn && btn.classList.remove('pressed'); };
   const demo = btn => {
-    if (reduce) return; stop();
+    stop();
     const r = btn.getBoundingClientRect(), tx = r.left + r.width * .55, ty = r.top + r.height * .45;
     fc.style.transition = 'none'; fc.style.transform = `translate(${tx + 70}px,${ty + 60}px)`; void fc.offsetWidth; fc.style.transition = '';
     fc.style.opacity = 1; fc.style.transform = `translate(${tx}px,${ty}px)`;

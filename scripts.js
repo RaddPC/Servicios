@@ -26,7 +26,7 @@ const CONFIG = {
 
   // Datos editables
   $$('[data-wa]').forEach(b => { b.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(b.dataset.wa)}`; b.target = '_blank'; b.rel = 'noopener'; });
-  $$('[data-social]').forEach(a => a.href = CONFIG.social[a.dataset.social]);
+  $$('[data-social]').forEach(a => { const u = CONFIG.social[a.dataset.social]; if (u && !/TU-/.test(u)) a.href = u; });
   $$('[data-emp]').forEach(el => el.textContent = E[el.dataset.emp] || '');
   $$('[data-mail]').forEach(a => { a.href = 'mailto:' + E.email; a.textContent = E.email; });
   $$('[data-tel]').forEach(a => { a.href = 'tel:' + E.telefono.replace(/\s/g, ''); a.textContent = E.telefono; });
@@ -61,7 +61,7 @@ const CONFIG = {
     later(() => { fc.style.opacity = 0; }, 1800);
   };
   const touch = matchMedia('(hover: none)').matches;
-  $$('.pill, .wa-float').forEach(b => {
+  $$('.pill, .wa-float, .social a').forEach(b => {
     if (!touch) { b.addEventListener('pointerenter', () => demo(b)); b.addEventListener('pointerleave', () => stop(b)); }
     b.addEventListener('focus', () => !touch && demo(b));
     b.addEventListener('blur', () => stop(b));

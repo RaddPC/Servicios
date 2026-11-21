@@ -4,7 +4,7 @@
 const CONFIG = {
   whatsapp: '573015122607',                       // número con código de país, sin + ni espacios
   social: {
-    facebook:  'https://www.facebook.com/profile.php?id=61582315520414&locale=es_LA',
+    facebook:  'https://www.facebook.com/profile.php?id=61582315520414',
     instagram: 'https://www.instagram.com/TU-USUARIO',
     tiktok:    'https://www.tiktok.com/@TU-USUARIO'
   },

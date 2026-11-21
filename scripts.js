@@ -23,6 +23,7 @@ const CONFIG = {
 /* ============================================================ */
 
 (() => {
+  document.documentElement.classList.add('js');   // solo oculta/anima secciones si este archivo cargó bien
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const E = CONFIG.empresa;

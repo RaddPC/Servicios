@@ -1,7 +1,4 @@
-/* ============================================================
-   ✏️ EDITA AQUÍ TUS DATOS (todo el sitio se actualiza solo)
-   ============================================================ */
-const CONFIG = {
+  const CONFIG = {
   whatsapp: '573015122607',                       // número con código de país, sin + ni espacios
   social: {
     facebook:  'https://www.facebook.com/profile.php?id=61582315520414',
